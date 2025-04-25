@@ -1,300 +1,326 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
-<meta name="description" content="An implementation of Gil Huybrecht's Outdoors design" />
-<meta name="keywords" content="template, web design, html, javascript, layout, css, slide out" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林家洋个人作品</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .backdrop-blur-sm {
+                backdrop-filter: blur(4px);
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            .animate-slide-up {
+                animation: slideUp 0.5s ease-out;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
-<body class="loading">
-<svg class="hidden">
-	<symbol id="icon-arrow" viewBox="0 0 24 24">
-		<title>arrow</title>
-		<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
-	</symbol>
-	<symbol id="icon-drop" viewBox="0 0 24 24">
-		<title>drop</title>
-		<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
-	</symbol>
-	<symbol id="icon-menu" viewBox="0 0 24 13">
-		<title>menu</title>
-		<path d="M.75 1.515h22.498a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5zM23.248 5.265H8.168a.75.75 0 0 0 0 1.5h15.08a.75.75 0 0 0 0-1.5zM23.248 10.514H4.322a.75.75 0 0 0 0 1.5h18.926a.75.75 0 0 0 0-1.5z"/>
-	</symbol>
-	<symbol id="icon-dot" viewBox="0 0 24 24">
-		<title>dot</title>
-		<path d="M11.5 9c-.69 0-1.28.244-1.768.732A2.41 2.41 0 0 0 9 11.5c0 .69.244 1.28.732 1.767A2.409 2.409 0 0 0 11.5 14c.69 0 1.28-.244 1.768-.733A2.408 2.408 0 0 0 14 11.5c0-.69-.244-1.28-.732-1.768A2.408 2.408 0 0 0 11.5 9z"/>
-	</symbol>
-	<symbol id="icon-cross" viewBox="0 0 24 24">
-		<title>cross</title>
-		<path d="M11.449 11.962l-5.1 5.099a.363.363 0 1 0 .513.512L12 12.436l5.137 5.137a.361.361 0 0 0 .513 0 .363.363 0 0 0 0-.512l-5.099-5.1 5.102-5.102a.363.363 0 1 0-.512-.513L12 11.487l-5.141-5.14a.363.363 0 0 0-.513.512l5.103 5.103z"/>
-	</symbol>
-	<symbol id="icon-arrowlong" viewBox="0 0 32 11">
-		<title>arrow-long</title>
-		<path d="M27.166.183a.619.619 0 0 0-.878 0 .619.619 0 0 0 0 .878l2.735 2.735H.768a.624.624 0 0 0 0 1.248h28.254L26.287 7.77a.619.619 0 0 0 0 .878.617.617 0 0 0 .441.183c.163 0 .32-.061.442-.183l3.796-3.796a.623.623 0 0 0-.005-.878L27.166.183z"/>
-	</symbol>
-	<symbol id="icon-close" viewBox="0 0 24 24">
-		<title>close</title>
-		<path d="M21 4.565L19.435 3 12 10.435 4.565 3 3 4.565 10.435 12 3 19.435 4.565 21 12 13.565 19.435 21 21 19.435 13.565 12z"/>
-	</symbol>
-	<symbol id="icon-navup" viewBox="0 0 50 50">
-		<title>navup</title>
-		<path d="M20.259 28.211l5.07-5.03 5.075 5.034a.36.36 0 0 0 .51 0 .356.356 0 0 0 0-.506l-5.323-5.28a.404.404 0 0 0-.135-.084.364.364 0 0 0-.384.08l-5.324 5.28a.356.356 0 0 0 0 .506c.141.14.37.14.51 0z" />
-	</symbol>
-	<symbol id="icon-navdown" viewBox="0 0 50 50">
-		<title>navdown</title>
-		<path d="M20.259 22.43l5.07 5.03 5.075-5.034a.36.36 0 0 1 .51 0c.14.14.14.366 0 .506l-5.323 5.28a.404.404 0 0 1-.135.084.364.364 0 0 1-.384-.081l-5.324-5.28a.356.356 0 0 1 0-.505c.141-.14.37-.14.51 0z" />
-	</symbol>
-	<symbol id="icon-grid" viewBox="0 0 24 24">
-		<title>grid</title>
-		<path d="M8.982 8.982h5.988v5.988H8.982zM0 0h5.988v5.988H0zM8.982 17.965h5.988v5.988H8.982zM0 8.982h5.988v5.988H0zM0 17.965h5.988v5.988H0zM17.965 0h5.988v5.988h-5.988zM8.982 0h5.988v5.988H8.982zM17.965 8.982h5.988v5.988h-5.988zM17.965 17.965h5.988v5.988h-5.988z"/>
-	</symbol>
-</svg>
-<main>
-	<div class="sections">
-		<header class="sections__header">
-			<h1 class="title">Outdoors</h1>
-		</header>
-		<!-- codrops links -->
-		<div class="codrops-links">
-			<a class="codrops-icon codrops-icon--prev" href="#themes/creative-multipurpose-website-template-free-download/" target="_blank" title="Back to the article"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
-			<a class="codrops-icon codrops-icon--drop" href="#" target="_blank" title="Visit Codrops"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
-		</div>
-		<!-- menu -->
-		<nav class="menu">
-			<ul class="menu__inner">
-				<li class="menu__item"><a class="menu__item-link" href="#">Our Story</a></li>
-				<li class="menu__item"><a class="menu__item-link" href="#">Adventures</a></li>
-				<li class="menu__item"><a class="menu__item-link" href="#">Testimonials</a></li>
-				<li class="menu__item"><a class="menu__item-link" href="#">Contact</a></li>
-			</ul>
-			<div class="menu__toggle">
-				<span class="menu__toggle-inner menu__toggle-inner--open">
-					<svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg>
-				</span>
-				<span class="menu__toggle-inner menu__toggle-inner--close">
-					<svg class="icon icon--close"><use xlink:href="#icon-close"></use></svg>
-				</span>
-			</div>
-		</nav>
-		<!-- facts expander with toggles; content for each is in its section -->
-		<div class="facts">
-			<div class="facts__toggle">
-				<span class="facts__toggle-inner facts__toggle-inner--more">
-					<svg class="icon icon--dot"><use xlink:href="#icon-dot"></use></svg>
-					<span class="facts__toggle-text">See more facts</span>
-				</span>
-				<span class="facts__toggle-inner facts__toggle-inner--less">
-					<svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
-					<span class="facts__toggle-text">See less facts</span>
-				</span>
-			</div>
-			<button class="button-contentclose">
-				<svg class="icon icon--close"><use xlink:href="#icon-close"></use></svg>
-			</button>
-		</div>
-		<!-- index -->
-		<div class="sections__index">
-			<span class="sections__index-current">
-				<span class="sections__index-inner">01</span>
-			</span>
-			<span class="sections__index-total">04</span>
-		</div>
-		<!-- navigation down -->
-		<nav class="sections__nav">
-			<button class="sections__nav-item sections__nav-item--prev">
-				<svg class="icon icon--navup"><use xlink:href="#icon-navup"></use></svg>
-			</button>
-			<button class="sections__nav-item sections__nav-item--next">
-				<svg class="icon icon--navdown"><use xlink:href="#icon-navdown"></use></svg>
-			</button>
-		</nav>
-		<!-- sections -->
-		<section class="section section--current">
-			<div class="section__content">
-				<h2 class="section__title">虚幻</h2>
-				<p class="section__description"><span class="section__description-inner">Hiking is the preferred term, in Canada and the United States, for a long, vigorous walk, usually on trails (footpaths), in the countryside, while the word walking is used for shorter, particularly urban walks.</span></p>
-			</div>
-			<div class="section__img">
-				<div class="section__img-inner" style="background-image: url(img/1.jpg)"></div>
-			</div>
-			<div class="section__more">
-				<div class="section__more-inner section__more-inner--bg1">
-					<span class="section__more-text">Want to know more?</span>
-					<a href="#theme_tag/free/" target="_blank" class="section__more-link">
-						<span class="section__more-linktext">Explore all hikes</span>
-						<svg class="icon icon--arrowlong"><use xlink:href="#icon-arrowlong"></use></svg>
-					</a>
-				</div>
-			</div>
-			<div class="section__expander"></div>
-			<ul class="section__facts">
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Biggest lake</h3>
-					<span class="section__facts-detail">Caspian sea in Kazakhstan</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Coolest activity</h3>
-					<span class="section__facts-detail">Kayaking the whole lake</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Lake depth</h3>
-					<span class="section__facts-detail">With 55m it's the deepest</span>
-				</li>
-				<li class="section__facts-item section__facts-item--clickable" data-gallery="gallery1">
-					<div class="section__facts-img">
-						<img src="img/thumb1.jpg" alt="Some image"/>
-						<svg class="icon icon--grid"><use xlink:href="#icon-grid"></use></svg>
-					</div>
-					<h3 class="section__facts-title">More impressions</h3>
-					<span class="section__facts-detail">A collection of images</span>
-				</li>
-			</ul>
-			<div class="section__gallery" id="gallery1">
-				<h3 class="section__gallery-item section__gallery-item--title">More impressions</h3>
-				<a class="section__gallery-item" href="#"><img src="img/thumb1.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb2.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb3.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb4.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb5.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb6.jpg" alt="Some image"/></a>
-			</div>
-		</section><!--/ section -->
-		<section class="section">
-			<div class="section__content">
-				<h2 class="section__title">Unity</h2>
-				<p class="section__description"><span class="section__description-inner">A lake is an area filled with water, localized in a basin, that is surrounded by land, apart from any river or other outlet that serves to feed or drain the lake. Lakes lie on land and are not part of the ocean.</span></p>
-			</div>
-			<div class="section__img">
-				<div class="section__img-inner" style="background-image: url(img/2.jpg)"></div>
-			</div>
-			<div class="section__more">
-				<div class="section__more-inner section__more-inner--bg2">
-					<span class="section__more-text">Want to know more?</span>
-					<a href="#" class="section__more-link">
-						<span class="section__more-linktext">Explore the lakes</span>
-						<svg class="icon icon--arrowlong"><use xlink:href="#icon-arrowlong"></use></svg>
-					</a>
-				</div>
-			</div>
-			<div class="section__expander"></div>
-			<ul class="section__facts">
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Biggest lake</h3>
-					<span class="section__facts-detail">Caspian sea in Kazakhstan</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Coolest activity</h3>
-					<span class="section__facts-detail">Kayaking the whole lake</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Lake depth</h3>
-					<span class="section__facts-detail">With 55m it's the deepest</span>
-				</li>
-				<li class="section__facts-item section__facts-item--clickable" data-gallery="gallery2">
-					<div class="section__facts-img">
-						<img src="img/thumb2.jpg" alt="Some image"/>
-						<svg class="icon icon--grid"><use xlink:href="#icon-grid"></use></svg>
-					</div>
-					<h3 class="section__facts-title">More impressions</h3>
-					<span class="section__facts-detail">A collection of images</span>
-				</li>
-			</ul>
-			<div class="section__gallery" id="gallery2">
-				<h3 class="section__gallery-item section__gallery-item--title">More impressions</h3>
-				<a class="section__gallery-item" href="#"><img src="img/thumb5.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb6.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb1.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb2.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb3.jpg" alt="Some image"/></a>
-				<a class="section__gallery-item" href="#"><img src="img/thumb4.jpg" alt="Some image"/></a>
-			</div>
-		</section><!--/ section -->
-		<section class="section">
-			<div class="section__content">
-				<h2 class="section__title">Paths</h2>
-				<p class="section__description"><span class="section__description-inner">A footpath (also pedestrian way, walking trail, nature trail) is a type of thoroughfare that is intended for use only by pedestrians and not other forms of traffic such as motorized vehicles, cycles, and horses.</span></p>
-			</div>
-			<div class="section__img">
-				<div class="section__img-inner" style="background-image: url(img/3.jpg)"></div>
-			</div>
-			<div class="section__more">
-				<div class="section__more-inner section__more-inner--bg3">
-					<span class="section__more-text">Want to know more?</span>
-					<a href="#" class="section__more-link">
-						<span class="section__more-linktext">Explore the paths</span>
-						<svg class="icon icon--arrowlong"><use xlink:href="#icon-arrowlong"></use></svg>
-					</a>
-				</div>
-			</div>
-			<div class="section__expander"></div>
-			<ul class="section__facts">
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Lovely paths</h3>
-					<span class="section__facts-detail">Caspian sea in Kazakhstan</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Haunted ways</h3>
-					<span class="section__facts-detail">Kayaking the whole lake</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Running and more</h3>
-					<span class="section__facts-detail">With 55m it's the deepest</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Starting to walk</h3>
-					<span class="section__facts-detail">An aerial view of the lake</span>
-				</li>
-			</ul>
-		</section><!--/ section -->
-		<section class="section">
-			<div class="section__content">
-				<h2 class="section__title">Rivers</h2>
-				<p class="section__description"><span class="section__description-inner">A river is a natural flowing watercourse, usually freshwater, flowing towards an ocean, sea, lake or another river. In some cases a river flows into the ground and becomes dry at the end of its course without reaching another body of water.</span></p>
-			</div>
-			<div class="section__img">
-				<div class="section__img-inner" style="background-image: url(img/4.jpg)"></div>
-			</div>
-			<div class="section__more">
-				<div class="section__more-inner section__more-inner--bg4">
-					<span class="section__more-text">Want to know more?</span>
-					<a href="#" class="section__more-link">
-						<span class="section__more-linktext">Explore all rivers</span>
-						<svg class="icon icon--arrowlong"><use xlink:href="#icon-arrowlong"></use></svg>
-					</a>
-				</div>
-			</div>
-			<div class="section__expander"></div>
-			<ul class="section__facts">
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">River romantics</h3>
-					<span class="section__facts-detail">Caspian sea in Kazakhstan</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">History call</h3>
-					<span class="section__facts-detail">Kayaking the whole lake</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">Walking around</h3>
-					<span class="section__facts-detail">With 55m it's the deepest</span>
-				</li>
-				<li class="section__facts-item">
-					<h3 class="section__facts-title">How many miles?</h3>
-					<span class="section__facts-detail">An aerial view of the lake</span>
-				</li>
-			</ul>
-		</section><!--/ section -->
-	</div><!--/ sections -->
-</main>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-<script src="js/charming.min.js"></script>
-<script src="js/anime.min.js"></script>
-<script src="js/main.js"></script>
+<body class="bg-dark text-light font-inter min-h-screen flex flex-col">
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img style="height: 30px; width: 30px;" src="./image/github-mark-white.png"/>
+                <h1 class="text-xl font-bold tracking-tight">ProgramLjy.github.io</h1>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-light/80 hover:text-primary transition-colors duration-200">首页</a>
+                <a href="#" class="text-light/80 hover:text-primary transition-colors duration-200">关于</a>
+            </nav>
+            <button class="md:hidden text-light text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="flex-grow pt-16 pb-8">
+        <div class="container mx-auto px-4 py-8">
+            <!-- 视频标题 -->
+            <div class="mb-6 animate-fade-in">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-shadow mb-2">林家洋个人作品</h2>
+            </div>
+
+            <!-- 视频播放器 -->
+            <div class="relative rounded-xl overflow-hidden shadow-2xl mb-8 animate-slide-up">
+                <video id="main-video" class="w-full aspect-video object-cover" controlsList="nodownload" preload="auto" playsinline>
+                    <source src="./sp/1.mp4" type="video/mp4">
+                    您的浏览器不支持视频标签。
+                </video>
+                
+                <!-- 自定义控制层 -->
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div class="flex flex-col space-y-3">
+                        <!-- 进度条 -->
+                        <div class="relative h-1 bg-light/30 rounded-full overflow-hidden cursor-pointer" id="progress-container">
+                            <div class="absolute top-0 left-0 h-full bg-primary rounded-full" id="progress-bar" style="width: 0%"></div>
+                            <div class="absolute top-0 left-0 h-full w-full" id="progress-hover"></div>
+                        </div>
+                        
+                        <!-- 控制按钮 -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <button id="play-pause" class="text-light hover:text-primary transition-colors">
+                                    <i class="fa fa-play text-xl"></i>
+                                </button>
+                                <div class="flex items-center space-x-2 cursor-pointer" id="volume-control">
+                                    <i class="fa fa-volume-up text-light hover:text-primary transition-colors" id="volume-icon"></i>
+                                    <div class="w-20 h-1 bg-light/30 rounded-full overflow-hidden relative hidden md:block">
+                                        <div class="absolute top-0 left-0 h-full bg-primary rounded-full" id="volume-bar" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <span class="text-light/80 text-sm" id="time-display">0:00 / 0:00</span>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <button class="text-light hover:text-primary transition-colors">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <button id="fullscreen" class="text-light hover:text-primary transition-colors">
+                                    <i class="fa fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark/50 text-light/60 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-center md:text-left">© 2025 brbrbr 保留所有权利.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 获取DOM元素
+        const video = document.getElementById('main-video');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        const timeDisplay = document.getElementById('time-display');
+        const volumeControl = document.getElementById('volume-control');
+        const volumeBar = document.getElementById('volume-bar');
+        const volumeIcon = document.getElementById('volume-icon');
+        const fullscreenBtn = document.getElementById('fullscreen');
+        const navbar = document.getElementById('navbar');
+
+        // 页面加载完成后自动播放视频（需要用户交互或浏览器允许自动播放）
+        document.addEventListener('DOMContentLoaded', () => {
+            // 尝试自动播放
+            video.play().catch(error => {
+                // 自动播放失败，等待用户交互后再播放
+                console.log('自动播放失败:', error);
+            });
+            
+            // 更新时间显示和进度条
+            updateTimeDisplay();
+            updateProgressBar();
+        });
+
+        // 播放/暂停按钮
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        video.addEventListener('click', togglePlayPause);
+
+        function togglePlayPause() {
+            if (video.paused || video.ended) {
+                video.play();
+                playPauseBtn.innerHTML = '<i class="fa fa-pause text-xl"></i>';
+            } else {
+                video.pause();
+                playPauseBtn.innerHTML = '<i class="fa fa-play text-xl"></i>';
+            }
+        }
+
+        // 进度条更新
+        video.addEventListener('timeupdate', updateProgressBar);
+
+        function updateProgressBar() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${percent}%`;
+            updateTimeDisplay();
+        }
+
+        // 点击进度条跳转
+        progressContainer.addEventListener('click', seek);
+
+        function seek(e) {
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            video.currentTime = pos * video.duration;
+        }
+
+        // 更新时间显示
+        function updateTimeDisplay() {
+            const currentMinutes = Math.floor(video.currentTime / 60);
+            const currentSeconds = Math.floor(video.currentTime % 60);
+            const durationMinutes = Math.floor(video.duration / 60) || 0;
+            const durationSeconds = Math.floor(video.duration % 60) || 0;
+
+            timeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // 音量控制
+        volumeControl.addEventListener('click', (e) => {
+            if (e.target === volumeIcon) {
+                // 静音/取消静音
+                video.muted = !video.muted;
+                updateVolumeUI();
+            } else if (e.target.closest('#volume-bar') || e.target.id === 'volume-bar') {
+                // 调整音量
+                const rect = volumeBar.parentElement.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.volume = pos;
+                updateVolumeUI();
+            }
+        });
+
+        function updateVolumeUI() {
+            if (video.muted || video.volume === 0) {
+                volumeBar.style.width = '0%';
+                volumeIcon.className = 'fa fa-volume-off text-light hover:text-primary transition-colors';
+            } else if (video.volume < 0.5) {
+                volumeBar.style.width = `${video.volume * 100}%`;
+                volumeIcon.className = 'fa fa-volume-down text-light hover:text-primary transition-colors';
+            } else {
+                volumeBar.style.width = `${video.volume * 100}%`;
+                volumeIcon.className = 'fa fa-volume-up text-light hover:text-primary transition-colors';
+            }
+        }
+
+        // 全屏控制
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { /* Safari */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE11 */
+                    video.msRequestFullscreen();
+                }
+                fullscreenBtn.innerHTML = '<i class="fa fa-compress"></i>';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+                fullscreenBtn.innerHTML = '<i class="fa fa-expand"></i>';
+            }
+        }
+
+        // 监听全屏状态变化
+        document.addEventListener('fullscreenchange', updateFullscreenButton);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+
+        function updateFullscreenButton() {
+            if (document.fullscreenElement) {
+                fullscreenBtn.innerHTML = '<i class="fa fa-compress"></i>';
+            } else {
+                fullscreenBtn.innerHTML = '<i class="fa fa-expand"></i>';
+            }
+        }
+
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // 键盘控制
+        document.addEventListener('keydown', (e) => {
+            // 空格或K键播放/暂停
+            if (e.code === 'Space' || (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                togglePlayPause();
+            }
+            // F键全屏
+            else if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+            // M键静音
+            else if (e.key === 'm' || e.key === 'M') {
+                e.preventDefault();
+                video.muted = !video.muted;
+                updateVolumeUI();
+            }
+            // 左右箭头键快退/快进
+            else if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                video.currentTime = Math.max(video.currentTime - 5, 0);
+            }
+            else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                video.currentTime = Math.min(video.currentTime + 5, video.duration);
+            }
+            // 上下箭头键调节音量
+            else if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                video.volume = Math.min(video.volume + 0.1, 1);
+                updateVolumeUI();
+            }
+            else if (e.code === 'ArrowDown') {
+                e.preventDefault();
+                video.volume = Math.max(video.volume - 0.1, 0);
+                updateVolumeUI();
+            }
+        });
+    </script>
 </body>
 </html>
+    

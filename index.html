@@ -81,10 +81,7 @@
 
             <!-- 视频播放器 -->
             <div class="relative rounded-xl overflow-hidden shadow-2xl mb-8 animate-slide-up">
-                <video id="main-video" class="w-full aspect-video object-cover" controlsList="nodownload" preload="auto" playsinline>
-                    <source src="./sp/1.mp4" type="video/mp4">
-                    您的浏览器不支持视频标签。
-                </video>
+                <div id="player_405e91a5c29f4fdb"></div>
                 
                 <!-- 自定义控制层 -->
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
@@ -320,6 +317,15 @@
                 updateVolumeUI();
             }
         });
+    </script>
+    <script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
+    <script type="text/javascript">
+    var player = new DogePlayer({
+        container: document.getElementById('player_405e91a5c29f4fdb'),
+        userId: 12923,
+        vcode: '405e91a5c29f4fdb',
+        autoPlay: false
+    });
     </script>
 </body>
 </html>

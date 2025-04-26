@@ -1,50 +1,89 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<title>ProgramLjy.github.io</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script src="js/preloader.js"></script> 
-<link rel="stylesheet" href="css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/css_browser_selector.js"></script>
- <script type="text/javascript" src="js/plax.js"></script>
-<script type="text/javascript" src="js/jquery.spritely-0.6.1.js"></script>
-<script type="text/javascript" src="js/jquery-animate-css-rotate-scale.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-</head>
-<body >
-<div id="indicator"></div>
-<div class="wrapper">
-	<div class="sky init">
-	<div id="clouds" class="clouds init"> </div>
-	</div>
-	
-	<div class="convas init">
-		<div id="mountain" class="mountain"></div>
-		<div class="ground"></div>
-		<div class="holder">
-		<div class="rocks"></div>
-		<div class="work-sign"></div>
-		<div class="text-sign">
-			<div class="text font">
-			   
-					We're Working Hard...
-			   
-			</div>
-		</div>
-		<div class="init hole">
-			<div class="sweat"></div>
-			<div class="worker swing "></div>
-			<div class="ground-bottom">
-				<div class="cleaner"></div>
-			</div>
-		</div>
-		</div>
-	</div>
-</div>
-</body>
-</html>
+<html lang="zh-CN">
 
+<head>
+	<meta charset="UTF-8">
+	<title>建设中</title>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+	<div id="app" style="width: 1280px;margin: auto;">
+		<el-container>
+			<el-header>
+				<el-menu class="el-menu-demo" mode="horizontal">
+					<el-menu-item> <el-image style="width: 30px; height: 30px;"
+							src="./images/github-mark.png"></el-image>
+						<span>ProgramLjy.github.io</span></el-menu-item>
+					<el-menu-item style="float: right;">
+						<el-input placeholder="Search...">
+							<i slot="prefix" class="el-input__icon el-icon-search"></i>
+						</el-input>
+					</el-menu-item>
+					<el-submenu style="float: right;">
+						<template slot="title">PAGES</template>
+						<el-menu-item><el-link href="https://work.programljy.me/" target="_blank"
+								:underline="false">WORKS</el-link></el-menu-item>
+						<el-menu-item><el-link href="https://blog.programljy.me/" target="_blank"
+								:underline="false">BLOG</el-link></el-menu-item>
+					</el-submenu>
+					<el-menu-item style="float: right;" @click="aboutDialogVisible = true">ABOUT</el-menu-item>
+					<el-menu-item style="float: right;"><el-link href="https://programljy.me/" target="_blank"
+							:underline="false">HOME</el-link></el-menu-item>
+				</el-menu>
+			</el-header>
+			<el-container>
+				<el-container>
+					<el-main>
+						<el-card class="box-card" shadow="never">
+							<el-empty :image-size="200" description=" ">
+								<div style="font-size: xx-large;"><b>Coming Soon</b></div>
+								<div style="font-size: large; margin-top: 5px; color: #a1a1a1;"><b>Our website is under
+										construction now</b></div>
+								<p style=" color: #a1a1a1;">We Are Working Very Hard To Give You The Best<br> Experience
+									With This One.</p>
+							</el-empty>
+						</el-card>
+
+					</el-main>
+				</el-container>
+			</el-container>
+			<el-footer>
+				<el-divider>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 5px;">Cpoyright &copy; 2025.ProgramLjy
+						All rights reserved.
+					</div>
+				</el-divider>
+			</el-footer>
+		</el-container>
+		<el-dialog title="About" :visible.sync="aboutDialogVisible" width="30%">
+			<el-row>
+				<el-col :span="3"><el-avatar src="images/avatar.jpg"></el-avatar></el-col>
+				<el-col :span="21">
+					<div style="font-size: small; margin-top: 3px;"><b>ProgramLjy</b></div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 5px;">1730268341@qq.com
+					</div>
+				</el-col>
+			</el-row>
+		</el-dialog>
+
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data() {
+			return {
+			};
+		},
+		methods: {
+
+		},
+		mounted() {
+		}
+	})
+</script>
+
+</html>

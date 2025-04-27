@@ -3,7 +3,8 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>建设中</title>
+	<title>Coming Soon</title>
+	<link rel="icon" href="favicon.svg">
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 
@@ -11,28 +12,34 @@
 	<div id="app" style="width: 1280px;margin: auto;">
 		<el-container>
 			<el-header>
-				<el-menu class="el-menu-demo" mode="horizontal">
-					<el-menu-item> <el-image style="width: 30px; height: 30px;"
+				<el-menu default-active="0" class="el-menu-demo" mode="horizontal" active-text-color="#000">
+					<el-menu-item index="1"> <el-image style="width: 30px; height: 30px;"
 							src="./images/github-mark.png"></el-image>
-						<span>ProgramLjy.github.io</span></el-menu-item>
-					<el-menu-item style="float: right;">
-						<el-input placeholder="Search...">
+						<span> ProgramLjy.github.io</span></el-menu-item>
+					<el-menu-item index="5" style="float: right;">
+						<el-input placeholder="Search..." disabled>
 							<i slot="prefix" class="el-input__icon el-icon-search"></i>
 						</el-input>
 					</el-menu-item>
-					<el-submenu style="float: right;">
+					<el-submenu index="4" style="float: right;">
 						<template slot="title">PAGES</template>
-						<el-menu-item><el-link href="https://work.programljy.me/" target="_blank"
+						<el-menu-item index="4-1"><el-link href="./work.html" target="_blank"
 								:underline="false">WORKS</el-link></el-menu-item>
-						<el-menu-item><el-link href="https://blog.programljy.me/" target="_blank"
+						<el-menu-item index="4-2"><el-link href="https://blog.programljy.me/" target="_blank"
 								:underline="false">BLOG</el-link></el-menu-item>
 					</el-submenu>
-					<el-menu-item style="float: right;" @click="aboutDialogVisible = true">ABOUT</el-menu-item>
-					<el-menu-item style="float: right;"><el-link href="https://programljy.me/" target="_blank"
+					<el-menu-item index="3" style="float: right;"
+						@click="aboutDialogVisible = true">ABOUT</el-menu-item>
+					<el-menu-item index="2" style="float: right;"><el-link href="https://programljy.me/" target="_blank"
 							:underline="false">HOME</el-link></el-menu-item>
 				</el-menu>
 			</el-header>
+			<el-breadcrumb separator-class="el-icon-arrow-right" style="margin-top: 20px; margin-left: 20px;">
+				<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+				<el-breadcrumb-item>404</el-breadcrumb-item>
+			</el-breadcrumb>
 			<el-container>
+
 				<el-container>
 					<el-main>
 						<el-card class="box-card" shadow="never">
@@ -44,7 +51,6 @@
 									With This One.</p>
 							</el-empty>
 						</el-card>
-
 					</el-main>
 				</el-container>
 			</el-container>
@@ -58,32 +64,32 @@
 		</el-container>
 		<el-dialog title="About" :visible.sync="aboutDialogVisible" width="30%">
 			<el-row>
-				<el-col :span="3"><el-avatar src="images/avatar.jpg"></el-avatar></el-col>
+				<el-col :span="3"><el-avatar src="images/avatar.jpg" style="margin-top: 5px; margin-left: 5px;"></el-avatar></el-col>
 				<el-col :span="21">
 					<div style="font-size: small; margin-top: 3px;"><b>ProgramLjy</b></div>
-					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 5px;">1730268341@qq.com
-					</div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">Software Engineering, Guangdong Ocean University</div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">1730268341@qq.com</div>
 				</el-col>
 			</el-row>
 		</el-dialog>
-
 	</div>
 </body>
 <script src="js/vue.js"></script>
 <script src="js/index.js"></script>
 <script>
-	new Vue({
+	var vue = new Vue({
 		el: '#app',
 		data() {
 			return {
+				aboutDialogVisible: false,
 			};
 		},
 		methods: {
-
 		},
 		mounted() {
 		}
 	})
 </script>
+
 
 </html>

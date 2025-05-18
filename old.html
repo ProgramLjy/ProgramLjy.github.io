@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>林家洋个人作品</title>
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+    <div id="app" style="width: 1280px;margin: auto;">
+        <el-container>
+            <el-header>
+                <el-menu default-active="0" class="el-menu-demo" mode="horizontal" active-text-color="#000">
+                    <el-menu-item index="1"> <el-image style="width: 30px; height: 30px;"
+                            src="./images/github-mark.png"></el-image>
+                        <span> ProgramLjy.github.io</span></el-menu-item>
+                    <el-menu-item index="5" style="float: right;">
+                        <el-input placeholder="Search..." disabled>
+                            <i slot="prefix" class="el-input__icon el-icon-search"></i>
+                        </el-input>
+                    </el-menu-item>
+                    <el-submenu index="4" style="float: right;">
+                        <template slot="title">PAGES</template>
+                        <el-menu-item index="4-1"><el-link href="./work.html" target="_blank"
+                                :underline="false">WORKS</el-link></el-menu-item>
+                        <el-menu-item index="4-2"><el-link href="https://blog.programljy.me/" target="_blank"
+                                :underline="false">BLOG</el-link></el-menu-item>
+                    </el-submenu>
+                    <el-menu-item index="3" style="float: right;" @click="aboutDialogVisible = true">ABOUT</el-menu-item>
+                    <el-menu-item index="2" style="float: right;"><el-link href="https://programljy.me/" target="_blank"
+                            :underline="false">HOME</el-link></el-menu-item>
+                </el-menu>
+            </el-header>
+            <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-top: 20px; margin-left: 20px;">
+                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                <el-breadcrumb-item>林家洋个人作品</el-breadcrumb-item>
+            </el-breadcrumb>
+            <el-container>
+                <el-aside width="200px">
+                    <el-menu default-active="0" class="el-menu-vertical-demo" @select="handleSelect"
+                        style="height: 95%; margin-top: 20px;">
+                        <el-menu-item v-for="(item, index) in players" :key=index :index="index + ''"
+                            :disabled=item.disabled>
+                            <i class="el-icon-video-camera"></i>
+                            <span slot="title">{{item.title}}</span>
+                        </el-menu-item>
+                    </el-menu>
+                    <!-- <el-divider></el-divider>
+                    <el-row>
+                        <el-col :span="6"><el-avatar src="images/avatar.jpg"></el-avatar></el-col>
+                        <el-col :span="18">
+                            <div style="font-size: small; margin-top: 3px;"><b>ProgramLjy</b></div>
+                            <div style="font-size: xx-small; color: #a1a1a1; margin-top: 5px;">1730268341@qq.com</div>
+                        </el-col>
+                    </el-row> -->
+                </el-aside>
+                <el-container>
+                    <el-main>
+                        <el-card class="box-card" shadow="never">
+                            <span style="font-size: x-large;">{{players[selectIndex].title}}</span>
+
+                            <el-row style="margin-top: 10px;">
+                                <el-col :span="3">
+                                    <i class="el-icon-date"></i>
+                                    <span style="font-size: xx-small; color: #a1a1a1;">1970-01-01</span>
+                                </el-col>
+                                <!-- <el-col :span="3">
+                                    <i class="el-icon-view"></i>
+                                    <span style="font-size: xx-small; color: #a1a1a1;">12,345 次观看</span>
+                                </el-col> -->
+                                <el-col :span="6">
+                                    <i class="el-icon-warning-outline"></i>
+                                    <span style="font-size: xx-small; color: #a1a1a1;">未经作者授权，禁止转载</span>
+                                </el-col>
+                                <el-col :span="9"> </el-col>
+                            </el-row>
+
+                            <el-divider></el-divider>
+                            <div class="relative rounded-xl overflow-hidden shadow-2xl mb-8 animate-slide-up">
+                                <div id="player"></div>
+                            </div>
+                            <el-divider></el-divider>
+
+
+                            <div><b>视频介绍</b></div>
+                            <div style="font-size: small; color: #a1a1a1; margin-top: 10px;">
+                                {{players[selectIndex].description}}</div>
+                        </el-card>
+                    </el-main>
+                </el-container>
+            </el-container>
+            <el-footer>
+                <el-divider>
+                    <div style="font-size: xx-small; color: #a1a1a1; margin-top: 5px;">Cpoyright &copy; 2025.ProgramLjy
+                        All rights reserved.
+                    </div>
+                </el-divider>
+            </el-footer>
+        </el-container>
+        <el-dialog title="About" :visible.sync="aboutDialogVisible" width="30%">
+			<el-row>
+				<el-col :span="3"><el-avatar src="images/avatar.jpg" style="margin-top: 5px; margin-left: 5px;"></el-avatar></el-col>
+				<el-col :span="21">
+					<div style="font-size: small; margin-top: 3px;"><b>ProgramLjy</b></div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">Software Engineering, Guangdong Ocean University</div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">1730268341@qq.com</div>
+				</el-col>
+			</el-row>
+		</el-dialog>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data() {
+            return {
+                selectIndex: 0,
+                aboutDialogVisible: false,
+                players: [
+                    { title: "增减门玩法（打僵尸）", disabled: false, id: "f8c5167e6dad7a6d", description: "这个人很懒，什么都没留下。", rate: 3.1 },
+                    { title: "黑洞吞噬玩法", disabled: false, id: "6a38bd6316fb903a", description: "这个人很懒，什么都没留下。", rate: 3.1 },
+                    { title: "智慧城市", disabled: false, id: "66a6555f95e61916", description: "这个人很懒，什么都没留下。", rate: 3.7 },
+                    { title: "汽车展示", disabled: false, id: "ae0e461fbbf7a3fa", description: "这个人很懒，什么都没留下。", rate: 5.0 },
+                    { title: "2D小游戏（打老鼠）", disabled: false, id: "163c8c87eab42367", description: "这个人很懒，什么都没留下。", rate: 4.5 },
+                    { title: "多人联网游戏", disabled: false, id: "e84f2060d0488757", description: "这个人很懒，什么都没留下。", rate: 4.5 },
+                    { title: "多线程通信", disabled: false, id: "405e91a5c29f4fdb", description: "这个人很懒，什么都没留下。", rate: 3.2 },
+                ]
+            };
+        },
+        methods: {
+            handleSelect(index) {
+                this.selectIndex = index;
+                var player = new DogePlayer({
+                    container: document.getElementById('player'),
+                    userId: 12923,
+                    vcode: this.players[index].id,
+                    theme: '#409EFF',
+                    autoPlay: false
+                });
+                player.on('ready', function (p) {
+                    p.notice('播放器就绪！', 1);
+                });
+                player.on('fullscreen', function (isFull, p) {
+                    p.notice((isFull ? '视频全屏了！' : '视频取消全屏。'), 1);
+                });
+                player.on('webfullscreen', function (isFull, p) {
+                    p.notice((isFull ? '视频网页全屏了！' : '视频取消网页全屏。'), 1);
+                });
+            },
+        },
+        mounted() {
+        }
+    })
+</script>
+<script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
+<script type="text/javascript">
+    vue.handleSelect(0);
+</script>
+
+</html>

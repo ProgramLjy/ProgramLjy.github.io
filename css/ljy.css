@@ -1,0 +1,8 @@
+    #zoom-div {
+        width: 270px;
+        transition: transform 0.6s;
+    }
+
+    #zoom-div:hover {
+        transform: scale(1.2);
+    }

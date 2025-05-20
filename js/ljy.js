@@ -6,6 +6,7 @@ var vue = new Vue({
             aboutDialogVisible: false,
             dialogPlayerVisible: false,
             player: "",
+            auto:false,
             kv:
             {
                 "f8c5167e6dad7a6d": { title: "打僵尸（增减门）", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2763445/vthumb/c347751917fbfb30d8f34a80568ddd98.6_69.jpg/144p.jpg", duration: "00:26" },
@@ -102,6 +103,9 @@ var vue = new Vue({
         },
         handleClose() {
             this.player.pause();
+        },
+        goBack() {
+            window.history.go(-1);
         }
     },
     mounted() {

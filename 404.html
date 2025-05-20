@@ -3,11 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Coming Soon</title>
+	<title>404</title>
 	<link rel="icon" href="favicon.svg">
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/ljy.css">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/ljy.css">
 </head>
 
 <body>
@@ -25,19 +25,20 @@
 					</el-menu-item>
 					<el-submenu index="4" style="float: right;">
 						<template slot="title">PAGES</template>
-						<el-menu-item index="4-1"><el-link href="./work.html" 
+						<el-menu-item index="4-1"><el-link href="./work.html"
 								:underline="false">WORKS</el-link></el-menu-item>
 						<el-menu-item index="4-2"><el-link href="https://blog.programljy.me/" target="_blank"
 								:underline="false">BLOG</el-link></el-menu-item>
 					</el-submenu>
 					<el-menu-item index="3" style="float: right;"
 						@click="aboutDialogVisible = true">ABOUT</el-menu-item>
-					<el-menu-item index="2" style="float: right;"><el-link href="https://programljy.me/" 
+					<el-menu-item index="2" style="float: right;"><el-link href="https://programljy.me/"
 							:underline="false">HOME</el-link></el-menu-item>
 				</el-menu>
 			</el-header>
 			<el-breadcrumb separator-class="el-icon-arrow-right" style="margin-top: 20px; margin-left: 20px;">
 				<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+				<el-breadcrumb-item>404</el-breadcrumb-item>
 			</el-breadcrumb>
 			<el-container>
 
@@ -45,12 +46,13 @@
 					<el-main>
 						<el-card class="box-card" shadow="never">
 							<el-empty :image-size="200" description=" ">
-								<div style="font-size: xx-large;"><b>Coming Soon</b></div>
-								<div style="font-size: large; margin-top: 5px; color: #a1a1a1;"><b>Our website is under
-										construction now</b></div>
-								<p style=" color: #a1a1a1;">We Are Working Very Hard To Give You The Best<br> Experience
-									With This One.</p>
+								<div style="font-size: xx-large;"><b>404</b></div>
+								<div style="font-size: large; margin-top: 5px; color: #a1a1a1;"><b>Oops! The page you are looking for does not exist.
+									</b></div>
+								<p style=" color: #a1a1a1;"> </p>
+								<P> <el-button @click="goBack">GO BACK</el-button></P>
 							</el-empty>
+
 						</el-card>
 					</el-main>
 				</el-container>
@@ -65,10 +67,12 @@
 		</el-container>
 		<el-dialog title="About" :visible.sync="aboutDialogVisible" width="30%">
 			<el-row>
-				<el-col :span="3"><el-avatar src="images/avatar.jpg" style="margin-top: 5px; margin-left: 5px;"></el-avatar></el-col>
+				<el-col :span="3"><el-avatar src="images/avatar.jpg"
+						style="margin-top: 5px; margin-left: 5px;"></el-avatar></el-col>
 				<el-col :span="21">
 					<div style="font-size: small; margin-top: 3px;"><b>ProgramLjy</b></div>
-					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">Software Engineering, Guangdong Ocean University</div>
+					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">Software Engineering, Guangdong
+						Ocean University</div>
 					<div style="font-size: xx-small; color: #a1a1a1; margin-top: 3px;">1730268341@qq.com</div>
 				</el-col>
 			</el-row>

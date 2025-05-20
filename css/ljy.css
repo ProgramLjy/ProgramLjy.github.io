@@ -1,8 +1,12 @@
-    #zoom-div {
-        width: 270px;
-        transition: transform 0.6s;
-    }
+        * {
+            font-family: 'Microsoft Yahei','PingFang SC';
+        }
 
-    #zoom-div:hover {
-        transform: scale(1.2);
-    }
+        #zoom-div {
+            width: 270px;
+            transition: transform 0.6s;
+        }
+
+        #zoom-div:hover {
+            transform: scale(1.2);
+        }

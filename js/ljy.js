@@ -81,7 +81,11 @@ var vue = new Vue({
                     userId: 12923,
                     vcode: id,
                     theme: '#409EFF',
-                    autoPlay: false
+                    autoPlay: false,
+                    logo: {
+                        gravity: 'NorthWest',
+                        img: 'https://img-uc.dogecloud.com/12923/image/1747725869/dd9b399427806e354a69bc836c7cfc98.png?sign=1747738801-4ab921a1a62ce2dacd10637cdd977328-12923-7d0cec1874f322d05fba28199f84f124'
+                    },
                 });
                 vue.player.on('ready', function (p) {
                     p.notice('播放器就绪！', 1);

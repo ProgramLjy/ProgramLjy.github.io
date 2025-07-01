@@ -25,16 +25,6 @@ var vue = new Vue({
 
                 "b0bdbebfcd16e8ed": { title: "丧尸集群", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2919483/vthumb/d76d09797f15a53a87a0a48f70010102.4.jpg/144p.jpg", duration: "01:23" },
                 "4bda6c5e7b143c07": { title: "武士冲锋", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2919486/vthumb/1c6fa611ba5e1ed2fa863881cab9f3a3.5.jpg/144p.jpg", duration: "01:23" },
-               
-                "0000000000000004": { title: "合成小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000005": { title: "停车小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000006": { title: "彩球小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000007": { title: "高塔小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-
-
-                "0000000000000010": { title: "割草闯关", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000011": { title: "魂类游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000012": { title: "ARPG游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
             }
             ,
             categorys: [

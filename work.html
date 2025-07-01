@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>林家洋个人作品</title>
     <link rel="icon" href="favicon.svg">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/ljy.css">
 </head>
@@ -100,6 +100,10 @@
                 </el-col>
             </el-row>
         </el-dialog>
+        <el-dialog visible.sync=false  >
+            网页首次访问加载需要一定时间，请稍后！
+        </el-dialog>
+        
         <el-dialog :visible.sync="dialogPlayerVisible"  @close="handleClose">
             <!-- <div slot="title" class="image-slot">{{kv[id].title}}</div> -->
             <div class="relative rounded-xl overflow-hidden shadow-2xl mb-8 animate-slide-up">

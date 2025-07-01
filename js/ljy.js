@@ -18,16 +18,20 @@ var vue = new Vue({
                 "405e91a5c29f4fdb": { title: "多线程通信", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2696577/vthumb/7f9b96efcec9f8f865fba13628ece8e1.5.jpg/144p.jpg", duration: "00:21" },
                 "b8e08f0e47553d5a": { title: "消灭星星(点消)", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2775316/vthumb/b2bb25c50c4ada73c992490136cf8b4a.7_18.jpg/144p.jpg", duration: "00:26" },
                 "af88d7ceddff6886": { title: "塔防游戏", description: "这个人很懒，什么都没留下。", src: "https://img.dogevideo.com/vcloud/12923/v/2775317/vthumb/a1d6d18ddacc32ab9ce2f043c088e30c.10_5.jpg/144p.jpg", duration: "00:17" },
+                "5b0316556921e262": { title: "SLG摆阵", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+                "3498498afb020fa2": { title: "纸牌匹配", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+                "2894bd754370c7f7": { title: "挖地道", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+                "36d7de23266ad045": { title: "停车小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
 
-                "0000000000000000": { title: "纸牌匹配", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000002": { title: "消消乐(Match 3)", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000003": { title: "消消乐结合SLG", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+                "b0bdbebfcd16e8ed": { title: "丧尸集群", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+                "4bda6c5e7b143c07": { title: "武士冲锋", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+               
                 "0000000000000004": { title: "合成小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
                 "0000000000000005": { title: "停车小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
                 "0000000000000006": { title: "彩球小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
                 "0000000000000007": { title: "高塔小游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000009": { title: "挖地道", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
-                "0000000000000008": { title: "SLG变阵", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
+
+
                 "0000000000000010": { title: "割草闯关", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
                 "0000000000000011": { title: "魂类游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
                 "0000000000000012": { title: "ARPG游戏", description: "这个人很懒，什么都没留下。", src: "", duration: "01:23" },
@@ -43,6 +47,12 @@ var vue = new Vue({
                         "b8e08f0e47553d5a",
                         "163c8c87eab42367",
                         "e84f2060d0488757",
+                        "5b0316556921e262",
+                        "3498498afb020fa2",
+                        "2894bd754370c7f7",
+                        "36d7de23266ad045",
+                        "b0bdbebfcd16e8ed",
+                        "4bda6c5e7b143c07"
 
 
                     ]
